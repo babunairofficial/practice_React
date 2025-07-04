@@ -70,3 +70,52 @@ src/
 While both CRA and VIte support JSX in .js files, using .jsx makes your intent clear — especially in component files. Vite, by default, encourages .jsx usage for JSX-heavy files.
 
 ---
+
+
+##  Step 3: Custom Element Rendering & JSX Internals
+
+As part of my deeper dive into React’s rendering mechanics, I created minimal custom React apps using different methods to directly control and observe how elements are created and rendered. This step wasn’t just about outcomes — it was about exploring how React *thinks* under the hood.
+
+###  Experiment: Minimal React App – Two Versions
+
+####  Version 1: Static JSX — Anchor Tag
+
+- Built a component rendering a single `<a>` tag using JSX.
+- Focused on JSX syntax fidelity and verifying how React interprets and compiles it into actual DOM structures using `React.createElement`.
+
+####  Version 2: Dynamic Rendering via `for` Loop
+
+- I explicitly used a traditional `for` loop for iterations of elements.
+- This was an intentional decision to manually control the rendering process — useful when exploring scenarios where iteration logic is complex or conditional.
+  
+###  Working with `React.createElement`
+
+To get a deeper grip on the abstraction, I manually used `React.createElement()` to create custom elements without JSX. This was a deliberate step to:
+
+- Observe the raw structure React uses to define elements
+- Contrast JSX with its underlying function calls
+- Appreciate JSX as syntactic clarity rather than necessity
+
+```js
+React.createElement(
+  'a',
+  { href: 'https://example.com', target: '_blank' },
+  'Click Here'
+);
+```
+
+This hands-on exploration reinforced an important point: React’s strength lies in its declarative abstraction — not just in the syntax, but in the architecture it enables.
+
+### Evaluated Expressions in JSX
+
+Reviewed how expressions are injected inside JSX using {} — covering simple variables, inline conditionals, and computed results.
+
+Revisited the internal constraints of JSX (e.g., no statements inside JSX, only expressions).
+
+Emphasized clean separation of logic and UI declarations when structuring components.
+
+```jsx
+const username = "ReactUser";
+return <h2>Welcome, {username}!</h2>;
+```
+---
