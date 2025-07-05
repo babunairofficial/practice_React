@@ -118,4 +118,54 @@ Emphasized clean separation of logic and UI declarations when structuring compon
 const username = "ReactUser";
 return <h2>Welcome, {username}!</h2>;
 ```
+
 ---
+
+##  Step 4: Counter App – Revisiting React Through Practical Abstraction
+
+As part of my revision process, I’ve adopted the approach that’s often most effective for developers at any stage: **learning by building**. Among foundational React exercises, the **Counter App** stands out as the simplest yet richest in terms of revealing how React works behind the scenes.
+
+This phase focused on building a counter from scratch using **React with Vite**, while revisiting key concepts that govern component behavior and state transitions.
+
+---
+
+###  Why the Counter App?
+
+While basic in appearance, the counter app serves as a concise vehicle to explore and validate:
+
+- State management with hooks (`useState`)
+- One-way data flow
+- Component rendering lifecycle
+- User interaction handling (events)
+- Controlled re-renders based on state changes
+
+It acts as a **microcosm of most real-world UIs** — reactive, stateful, and predictable.
+
+---
+
+###  Stack Used
+
+- **React** (with functional components)
+- **Vite** (for faster build, HMR, and clean setup)
+- **JSX** and standard React conventions
+
+---
+
+###  Concepts Revisited
+
+####  `useState` Hook
+
+Used `useState` to manage and update the counter value:
+
+```jsx
+const [count, setCount] = useState(0);
+```
+
+- Initial state: Defined at component mount
+- State updater: Used to mutate and trigger re-render
+- Reactivity: Each setCount call triggers a diff + reconciliation cycle in the virtual DOM
+
+### Reflections
+You don’t master the framework by building complex dashboards — you master it by fully understanding what a single button click really does under the hood.
+
+Through this hands-on revision, I re-anchored my mental model of React’s declarative paradigm, state flow, and component isolation — all within a project that’s deceptively simple but conceptually rich.
