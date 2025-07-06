@@ -169,3 +169,80 @@ const [count, setCount] = useState(0);
 You don’t master the framework by building complex dashboards — you master it by fully understanding what a single button click really does under the hood.
 
 Through this hands-on revision, I re-anchored my mental model of React’s declarative paradigm, state flow, and component isolation — all within a project that’s deceptively simple but conceptually rich.
+
+---
+
+
+##  Step 5: TailwindProps Project – Styling with Tailwind & Dynamic Components via Props
+
+The next phase of my React revision journey involved building a project named **TailwindProps**, which served two key purposes:
+
+1. To gain hands-on understanding of **Tailwind CSS** and its utility-first approach to styling React components
+2. To strengthen my grasp on **React props** — particularly how to dynamically configure reusable components
+
+---
+
+###  Stack & Setup
+
+- **React with Vite** for fast bundling and HMR
+- **Tailwind CSS v4.1**, installed and configured following the latest official documentation
+- **Functional Components** with prop-based customization
+
+> Tailwind CSS was set up using the [@tailwindcss/vite](https://www.npmjs.com/package/@tailwindcss/vite) plugin, as per the latest v4.1 installation process.
+
+---
+
+###  Props in Component-Based Design
+
+In this project, I explored how props allow for creating **modular, reusable components** that can adapt based on input.
+
+####  Use Case Example: Dynamic Cards
+
+Created a single `Card` component with a shared structure and layout, and passed custom props to:
+
+- Display different course names
+
+This reinforces the React principle: **structure remains consistent, behavior adapts via props.**
+
+---
+
+###  Handling Missing or Undefined Props
+
+To ensure robustness in components (especially in larger codebases), I explored two critical techniques:
+
+#### 1. **Setting Default Values Inside Component Logic**
+
+```jsx
+function Card(props) {
+  const title = props.title || 'Default Title';
+  const description = props.description || 'No description available';
+}
+```
+
+#### 2. Destructuring with Default Values in Parameters
+
+```jsx
+function Card({ title = 'Default Title', description = 'No description available' }) {
+  return (
+    <div className="p-4 bg-white shadow-md">
+      <h2 className="text-lg font-semibold">{title}</h2>
+      <p>{description}</p>
+    </div>
+  );
+}
+```
+This pattern is especially useful for preventing runtime errors and writing more concise, declarative code.
+
+
+###  Reflections
+
+> **A reusable component is only truly reusable when it handles variations — including the absence of input — gracefully.**
+
+This project helped reinforce:
+
+-  The **efficiency and elegance of Tailwind CSS** for rapid UI styling without leaving the component scope  
+-  The **power of props** for parameterizing behavior and content  
+-  The **importance of defensive coding** via default values in functional components  
+-  The **fusion of Tailwind with dynamic props** represents a practical balance between design flexibility and code maintainability — essential for scalable frontend development  
+
+---
