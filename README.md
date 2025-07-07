@@ -246,3 +246,62 @@ This project helped reinforce:
 -  The **fusion of Tailwind with dynamic props** represents a practical balance between design flexibility and code maintainability — essential for scalable frontend development  
 
 ---
+
+##  Step 6: Background Changer Project – Exploring Hooks & Event Handling with Tailwind CSS
+
+This project involved building a **Background Changer** using React’s `useState` hook and **Tailwind CSS** for styling. Though simple in functionality, this project provided deep insight into how React handles state, updates the UI, and manages event-driven behavior.
+
+---
+
+###  Key Tools & Technologies
+
+- **React (Vite)** – for building the interactive UI  
+- **Tailwind CSS** – for utility-first styling and dynamic class updates  
+- **`useState` Hook** – for managing background color as a reactive piece of state  
+
+---
+
+###  What I Explored
+
+####  Core Functionality
+
+- A simple interface with multiple buttons
+- On click, each button changes the background color of the app dynamically
+- The color value is stored in state using `useState`
+
+```jsx
+const [bgColor, setBgColor] = useState("white");
+```
+####  Tailwind for Dynamic Styling
+- The background color was applied using Tailwind utility classes.
+- Dynamic Tailwind class names were composed using template literals based on state:
+
+```jsx
+<div className={`w-full h-screen ${bgColor}`}></div>
+```
+
+#### Event Handling - Key Points
+- One important realization during this project was understanding how to correctly handle parameter passing in event listeners.
+- You cannot directly invoke a function with arguments inside an onClick handler like this:
+
+```jsx
+onClick={setBgColor("bg-red-500")} //  This runs immediately during render
+```
+
+Instead, you must pass it as a function reference or use an arrow function:
+
+```jsx
+onClick={() => setBgColor("bg-red-500")} //  Correct usage
+```
+This ensures the function is only called when the event occurs, not during component rendering.
+
+###  Concepts Reinforced
+- Controlled use of useState to manage UI state
+- Dynamic styling using Tailwind class strings
+- Understanding of event handling patterns in React
+- Best practices for functional purity and referential integrity in JSX event props
+
+### Reflections
+> Even a single button click can teach you volumes — when you trace what really happens beneath it.
+
+This project highlighted how React’s declarative design and Tailwind’s utility-first CSS can work seamlessly together to create clean, interactive UIs. The nuance around event handling and parameter passing in JSX was especially valuable, as it distinguishes surface-level usage from truly understanding React’s component lifecycle and render behavior.
