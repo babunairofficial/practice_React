@@ -305,3 +305,91 @@ This ensures the function is only called when the event occurs, not during compo
 > Even a single button click can teach you volumes — when you trace what really happens beneath it.
 
 This project highlighted how React’s declarative design and Tailwind’s utility-first CSS can work seamlessly together to create clean, interactive UIs. The nuance around event handling and parameter passing in JSX was especially valuable, as it distinguishes surface-level usage from truly understanding React’s component lifecycle and render behavior.
+
+---
+
+##  Step 7: React Password Generator – Exploring Hooks, UX & Performance Optimization
+
+As part of my ongoing revision process, I built a **React-based Password Generator** with a focus on:
+
+- **State management and interactivity**
+- **Performance optimizations using hooks**
+- **Clean UX using Tailwind CSS**
+- **Clipboard functionality using `useRef`**
+
+This project combines essential frontend logic with interactive UI — showing how to convert user inputs into functional and accessible outputs.
+
+---
+
+###  React Hooks Used
+
+- **`useState`** – Manages dynamic data including:
+  - Password length
+  - Include numbers / special characters (checkboxes)
+  - Generated password value
+
+- **`useRef`** – Used to reference the password input field (`passwordRef`) to support **copy-to-clipboard functionality**
+
+- **`useCallback`** – Memoizes the password generation and copy logic for performance, with `setPassword` included in the dependency array to ensure correct reference
+
+- **`useEffect`** – Automatically triggers a password regeneration whenever options (length, symbols, numbers) are changed
+
+---
+
+###  Core Logic Overview
+
+- Dynamically constructs a character set based on checkbox inputs:
+  - Letters only
+  - Letters + Numbers
+  - Letters + Numbers + Symbols
+
+- Generates a password using `Math.random()` to select characters
+
+- Supports **clipboard copy** via:
+  ```js
+  navigator.clipboard.writeText(password);
+```
+
+---
+
+- Uses passwordRef.current.select() to trigger selection on copy
+
+###  UI Components & Behavior
+
+-  **Range slider** to adjust password length (8–100)
+-  **Checkboxes** to include numbers and/or symbols
+-  **Read-only input field** to display the password
+-  **Copy button** to copy password to clipboard with user feedback
+
+---
+
+###  Tailwind CSS Utilities Used
+
+- `bg-gray-800`, `text-orange-500` – Dark theme and contrast  
+- `flex`, `gap-x-2` – Responsive layout with spacing  
+- `rounded-lg`, `shadow-md` – Smooth, clean visual design  
+- `w-full`, `max-w-md`, `mx-auto` – Centered and responsive layout  
+
+---
+
+###  Key Features
+
+-  **Auto-regenerates password** on any settings update  
+-  **Copy to clipboard** with UX feedback  
+-  **Responsive design** using Tailwind utilities  
+-  **Real-time slider** adjusts password length on the fly  
+
+---
+
+###  Reflections
+
+> *A simple tool can be a powerful way to reinforce complex concepts — when built intentionally.*
+
+This project was a practical refresher on combining multiple React hooks in a **performance-aware, user-friendly** way. It emphasized how even utility-focused tools can strengthen key development patterns such as:
+
+-  **Efficient re-renders using `useCallback`**
+-  **DOM manipulation via `useRef`**
+-  **Hook orchestration with `useEffect`**
+-  **Declarative design using Tailwind CSS**
+
+---
